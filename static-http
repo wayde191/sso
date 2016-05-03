@@ -1,0 +1,4 @@
+#!/bin/sh
+(
+  python ./static-server.py 4500
+)
