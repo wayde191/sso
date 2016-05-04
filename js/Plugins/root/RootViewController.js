@@ -87,8 +87,11 @@
       var accountName = $("#accountname")[0].value;
       var accountPassword = $("#accountpassword")[0].value;
       
-      if(!accountName || !accountPassword){
-        this.showMessage({title:"温馨提示", text:"请输入用户名和密码"});
+      if(!accountName){
+        this.showErrorMessage({title:"温馨提示", text:"请输入用户名"});
+        return;
+      } else if(!accountPassword){
+        this.showErrorMessage({title:"", text:"请输入密码"});
         return;
       }
       
@@ -157,11 +160,13 @@
       };
       window.setTimeout(tempF, 2000);
     };
+
+    root.prototype.showErrorMessage = function(dialogMsg){
+      $('.error').css("display", "block");
+      $('.error .dserror').html(dialogMsg.text);
+    };
     
     root.prototype.showMessage = function(dialogMsg){
-      $('.error').css("display", "none");
-      $('')
-
       // Dialog
         $('#dialog').dialog({
             autoOpen: false,

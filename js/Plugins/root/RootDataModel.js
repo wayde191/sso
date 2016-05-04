@@ -16,7 +16,6 @@
       this.sysUser = new ih.User();
       this.pubsub = new ih.PubSub();
       this.delegate = null;
-      this.awards = null;
     };
     
     dm.prototype.doLogin = function(paras){
