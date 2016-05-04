@@ -1,7 +1,7 @@
 /**
   *@Version : 1.0
   *@Author : Wayde Sun
-  *@Time : 2010.3.4
+  *@Time : 2016.5.4
   */
 
   ih.defineClass('ih.plugins.rootViewController', null, null, function(ROOT, root){
@@ -9,104 +9,35 @@
     root.prototype.init = function(){
       this.dm = new ih.plugins.rootDataModel();
       this.dm.delegate = this;
-      this.initHtmls();
-      this.setupLanguage();
       this.setupErrorinfo();
-      this.buildMainPage();
-      
+      this.setupClickEvent();
+
       if(this.dm.sysUser.isLogin()) {
         this.setUserinfo();
       }
-      
-    };
-    
-    root.prototype.buildMainPage = function(){
-      $("#content").html('<div id="ih-recommands"></div><hr><div id="ih-main" role="main"></div>');
-      this.buildRecommands();
-      this.buildMainContent();
-    };
-    
-    root.prototype.buildMainContent = function(){
-      this.localize();
-      this.setupClickEvent();
     };
     
     root.prototype.setupClickEvent = function(){
-      $("#ih-login-button").click(ih.$F(function(){
-        this.onLoginBtnClicked();
+      var me = this;
+      $('#accountpassword').bind('keypress',function(event){
+        if(event.keyCode == "13") {
+          me.onSignInBtnClicked();
+        }
+      });
+
+      $("#ih-register-btn").click(ih.$F(function(){
+        this.onRegisterBtnClicked();
       }).bind(this));
+      $("#ih-login-btn").click(ih.$F(function(){
+        this.onSignInBtnClicked();
+      }).bind(this));
+      $("#ih-forgetPwd-btn").click(ih.$F(function(){
+        this.onForgetPwdMaskBtnClicked();
+      }).bind(this));
+
       $("#mask-button").click(ih.$F(function(){
         this.onCloseMaskBtnClicked();
       }).bind(this));
-      
-      $("#content-col-1-link").click(ih.$F(function(){
-        var productsPlugin = ihSysEngine.root.findChildPluginById("ih.plugins.products");
-        if(!productsPlugin.scriptsLoaded) {
-          ih.plugins.rootPlugin.showMaskSpinner();
-          productsPlugin.loadScripts();
-        } else {
-          productsPlugin.pluginAnchor.scriptsLoaded();
-        }
-      }).bind(this));
-      
-      $("#content-col-2-link").click(ih.$F(function(){
-        var productsPlugin = ihSysEngine.root.findChildPluginById("ih.plugins.products");
-        if(!productsPlugin.scriptsLoaded) {
-          ih.plugins.rootPlugin.showMaskSpinner();
-          productsPlugin.loadScripts();
-        } else {
-          productsPlugin.pluginAnchor.scriptsLoaded();
-        }
-      }).bind(this));
-      
-      $("#content-col-3-link").click(ih.$F(function(){
-        var productsPlugin = ihSysEngine.root.findChildPluginById("ih.plugins.products");
-        if(!productsPlugin.scriptsLoaded) {
-          ih.plugins.rootPlugin.showMaskSpinner();
-          productsPlugin.loadScripts();
-        } else {
-          productsPlugin.pluginAnchor.scriptsLoaded();
-        }
-      }).bind(this));
-      
-      $("#gn-home").click(ih.$F(function(){
-        this.buildMainPage();
-        $("#gn-products a:first").removeClass("selecting");
-        $("#gn-home a:first").addClass("selecting");
-      }).bind(this));
-      
-      $("#gn-products").click(ih.$F(function(){
-        $("#gn-products a:first").addClass("selecting");
-        $("#gn-home a:first").removeClass("selecting");
-        
-        var productsPlugin = ihSysEngine.root.findChildPluginById("ih.plugins.products");
-        if(!productsPlugin.scriptsLoaded) {
-          ih.plugins.rootPlugin.showMaskSpinner();
-          productsPlugin.loadScripts();
-        } else {
-          productsPlugin.pluginAnchor.scriptsLoaded();
-        }
-      }).bind(this));
-      
-      $("#gn-us").click(ih.$F(function(){
-        window.open(ih.hostRoot + "htmls/aboutme.html");
-//        this.showMessage({title:"温馨提示", text:"Coming soon"});
-      }).bind(this));
-      
-      $("#gn-blog").click(ih.$F(function(){
-        window.open("http://blog.ihakula.com");
-      }).bind(this));
-                 
-      $("#mf-ihakula").click(ih.$F(function(){
-        window.open(ih.hostRoot + "htmls/ihakula.html");
-      }).bind(this));
-      $("#mf-aboutme").click(ih.$F(function(){
-        window.open(ih.hostRoot + "htmls/aboutme.html");
-      }).bind(this));
-      $("#mf-privacy").click(ih.$F(function(){
-        window.open(ih.hostRoot + "htmls/termsandprivacy.html");
-      }).bind(this));
-      
     };
     
     root.prototype.onRegisterBtnClicked = function(){
@@ -225,195 +156,12 @@
         $("#ih-mask").css("display", "none");
       };
       window.setTimeout(tempF, 2000);
-      
-    };
-    
-    root.prototype.onLoginBtnClicked = function(){
-      $("#ih-mask").css("display", "block");
-      $("#ih-mask").addAnimation("fadeIn");
-      $("#ds_container").html(this.loginHtml);
-      $("#ds_container").addAnimation("bounceInUp");
-      
-      var me = this;
-      $('#accountpassword').bind('keypress',function(event){
-        if(event.keyCode == "13") {
-          me.onSignInBtnClicked();
-        }
-      });
-      
-      $("#ih-register-btn").click(ih.$F(function(){
-        this.onRegisterBtnClicked();
-      }).bind(this));
-      $("#ih-login-btn").click(ih.$F(function(){
-        this.onSignInBtnClicked();
-      }).bind(this));
-      $("#ih-forgetPwd-btn").click(ih.$F(function(){
-        this.onForgetPwdMaskBtnClicked();
-      }).bind(this));
-      
-    };
-    
-    root.prototype.localize = function(){
-      // Main content
-      this.mainContent = this.mainContent.replace(/@content-title/i, this.languages[this.selectedLanguage]["content-title"]);
-      this.mainContent = this.mainContent.replace(/@content-col-1-title/i, this.languages[this.selectedLanguage]["content-col-1-title"]);
-      this.mainContent = this.mainContent.replace(/@content-col-1-description/i, this.languages[this.selectedLanguage]["content-col-1-description"]);
-      this.mainContent = this.mainContent.replace(/@content-col-1-link/i, this.languages[this.selectedLanguage]["content-col-1-link"]);
-      this.mainContent = this.mainContent.replace(/@content-col-2-title/i, this.languages[this.selectedLanguage]["content-col-2-title"]);
-      this.mainContent = this.mainContent.replace(/@content-col-2-description/i, this.languages[this.selectedLanguage]["content-col-2-description"]);
-      this.mainContent = this.mainContent.replace(/@content-col-2-link/i, this.languages[this.selectedLanguage]["content-col-2-link"]);
-      this.mainContent = this.mainContent.replace(/@content-col-3-title/i, this.languages[this.selectedLanguage]["content-col-3-title"]);
-      this.mainContent = this.mainContent.replace(/@content-col-3-description/i, this.languages[this.selectedLanguage]["content-col-3-description"]);
-      this.mainContent = this.mainContent.replace(/@content-col-3-link/i, this.languages[this.selectedLanguage]["content-col-3-link"]);
-        
-      $("#ih-main").html(this.mainContent);
-        
-      // Footer
-      this.mainFooter = this.mainFooter.replace(/@footer-ihakula/i, this.languages[this.selectedLanguage]["footer-ihakula"]);
-      this.mainFooter = this.mainFooter.replace(/@footer-aboutme/i, this.languages[this.selectedLanguage]["footer-aboutme"]);
-      this.mainFooter = this.mainFooter.replace(/@footer-privacy/i, this.languages[this.selectedLanguage]["footer-privacy"]);
-      this.mainFooter = this.mainFooter.replace(/@footer-icp/i, this.languages[this.selectedLanguage]["footer-icp"]);
-      
-      $("#ih-footer").html(this.mainFooter);
-    };
-    
-    root.prototype.buildRecommands = function(){
-      var target = document.getElementById('ih-recommands');
-      var spinner = new Spinner(ih.plugins.rootPlugin.spinnerDefaultOpts).spin(target);
-      
-      var replacement = document.getElementById('ih-recommands');
-			replacement.id = "ih-recommands";
-			var el = document.getElementById('ih-recommands');
-			el.parentNode.replaceChild(replacement, el);
-      
-      var me = this;
-			coverflow('ih-recommands').setup({
-        width: '100%',
-        item: 0,
-        playlist: [
-          {
-          "title": "舌尖上的Dota",
-          "description": "问Dota谁主沉浮，看我猥琐一刀流",
-          "image": "http://www.ihakula.com/images/logos/product-idota.png",
-          "link": "http://www.ihakula.com/",
-          "duration": "183"
-          },
-          {
-          "title": "收益通",
-          "description": "这宝那宝不叫事，统一查看妥妥的",
-          "image": "http://www.ihakula.com/images/logos/product-shouyitong.png",
-          "link": "http://www.ihakula.com/",
-          "duration": "183"
-          },
-          {
-          "title": "谁是卧底007",
-          "description": "聚会时刻，谁是卧底007",
-          "image": "http://www.ihakula.com/images/logos/product-undercover.png",
-          "link": "http://www.ihakula.com/",
-          "duration": "183"
-          },
-          {
-          "title": "Gantts Everything",
-          "description": "Don't just make a plan, just do it!",
-          "image": "http://www.ihakula.com/images/product-gantt.png",
-          "link": "http://www.ihakula.com/",
-          "duration": "183"
-          },
-          {
-          "title": "Life Assistant",
-          "description": "Account your life, it is a good life!",
-          "image": "http://www.ihakula.com/images/product-iaccount.png",
-          "duration": "782"
-          },
-           {
-           "title": "阿标旅游",
-           "description": "云南品质游，尽在阿标旅游",
-           "image": "http://www.ihakula.com/images/logos/product-abiao.png",
-           "link": "http://www.ihakula.com/",
-           "duration": "183"
-           }
-          ],
-        coverwidth: 360,
-        coverheight: 150,
-        fixedsize: true,
-        textoffset: 50,
-        backgroundcolor:"ffffff",
-        reflectionopacity:0.1,
-        coverdepth:120,
-        covergap:80
-
-        })
-        .on('ready', function(){
-          spinner.stop();
-          
-          this.on('focus', function(index) {
-          });
-				
-          this.on('click', function(index, link) {
-            
-            if(index == 0) {
-              var journeyPlugin = ihSysEngine.root.findChildPluginById("ih.plugins.id");
-              if(!journeyPlugin.scriptsLoaded) {
-                ih.plugins.rootPlugin.showMaskSpinner();
-                journeyPlugin.loadScripts();
-              } else {
-                journeyPlugin.pluginAnchor.scriptsLoaded();
-              }
-              
-            } else if (index == 1) {
-              var journeyPlugin = ihSysEngine.root.findChildPluginById("ih.plugins.if");
-              if(!journeyPlugin.scriptsLoaded) {
-                ih.plugins.rootPlugin.showMaskSpinner();
-                journeyPlugin.loadScripts();
-              } else {
-                journeyPlugin.pluginAnchor.scriptsLoaded();
-              }
-              
-            } else if(index == 5) {
-              var journeyPlugin = ihSysEngine.root.findChildPluginById("ih.plugins.journey");
-              if(!journeyPlugin.scriptsLoaded) {
-                ih.plugins.rootPlugin.showMaskSpinner();
-                journeyPlugin.loadScripts();
-              } else {
-                journeyPlugin.pluginAnchor.scriptsLoaded();
-              }
-              
-            } else if(index == 2) {
-              var journeyPlugin = ihSysEngine.root.findChildPluginById("ih.plugins.undercover");
-              if(!journeyPlugin.scriptsLoaded) {
-                ih.plugins.rootPlugin.showMaskSpinner();
-                journeyPlugin.loadScripts();
-              } else {
-                journeyPlugin.pluginAnchor.scriptsLoaded();
-              }
-              
-            } else if(index == 3) {
-              var accountPlugin = ihSysEngine.root.findChildPluginById("ih.plugins.account");
-              if(!accountPlugin.scriptsLoaded) {
-                ih.plugins.rootPlugin.showMaskSpinner();
-                accountPlugin.loadScripts();
-              } else {
-                accountPlugin.pluginAnchor.scriptsLoaded();
-              }
-            } else {
-              var ganttPlugin = ihSysEngine.root.findChildPluginById("ih.plugins.gantt");
-              if(!ganttPlugin.scriptsLoaded) {
-                ih.plugins.rootPlugin.showMaskSpinner();
-                ganttPlugin.loadScripts();
-              } else {
-                ganttPlugin.pluginAnchor.scriptsLoaded();
-              }
-            }
-          });
-        
-        });
-    
-      window.onresize = function() {
-        coverflow('ih-recommands').resize();
-      };
     };
     
     root.prototype.showMessage = function(dialogMsg){
+      $('.error').css("display", "none");
+      $('')
+
       // Dialog
         $('#dialog').dialog({
             autoOpen: false,
@@ -432,127 +180,8 @@
     
     root.prototype.setupErrorinfo = function(){
       this.errorInfo = {
-        900 : this.languages[this.selectedLanguage]["errorcode_900"],
-        901 : this.languages[this.selectedLanguage]["errorcode_901"],
-        902 : this.languages[this.selectedLanguage]["errorcode_902"],
-        903 : this.languages[this.selectedLanguage]["errorcode_903"],
-        910 : this.languages[this.selectedLanguage]["errorcode_910"],
-        1001 : this.languages[this.selectedLanguage]["errorcode_1001"],
-        1002 : this.languages[this.selectedLanguage]["errorcode_1002"],
-        1003 : this.languages[this.selectedLanguage]["errorcode_1003"],
-        1004 : this.languages[this.selectedLanguage]["errorcode_1004"],
-        1005 : this.languages[this.selectedLanguage]["errorcode_1005"],
-        1080 : this.languages[this.selectedLanguage]["errorcode_1080"],
-        1081 : this.languages[this.selectedLanguage]["errorcode_1081"],
-        1082 : this.languages[this.selectedLanguage]["errorcode_1082"],
-        1083 : this.languages[this.selectedLanguage]["errorcode_1083"],
-        1084 : this.languages[this.selectedLanguage]["errorcode_1084"]
+        900 : "hello error"
       };
-    };
-    
-    root.prototype.setupLanguage = function(){
-      this.selectedLanguage = "zh";
-      
-      this.languages = {
-        "zh" : {
-          "content-title":"让我们的生活从此变得简单",
-          "content-col-1-title":"精品推荐",
-          "content-col-1-description":"工作上我们可能会用到的",
-          "content-col-1-link":"了解详情",
-          "content-col-2-title":"生活常用",
-          "content-col-2-description":"生活必需居于中心，一切以它展开",
-          "content-col-2-link":"了解详情",
-          "content-col-3-title":"友情推荐",
-          "content-col-3-description":"不要对你的财富视而不见",
-          "content-col-3-link":"了解详情",
-          
-          "footer-ihakula":"ihakula",
-          "footer-aboutme":"关于我",
-          "footer-privacy":"隐私权和条款",
-          "footer-icp":"京ICP证13034741号",
-          
-          "registerSucceed":"恭喜，注册成功，请登录",
-          
-          "errorcode_900":"用户名密码不能为空",
-          "errorcode_901":"请确认密码正确是否相等",
-          "errorcode_902":"该ID已经被注册",
-          "errorcode_903":"服务器故障，请稍后重试",
-          "errorcode_910":"用户不存在",
-          
-          "errorcode_1001":"取账单类别失败，请重试",
-          "errorcode_1002":"添加记录失败，请重试",
-          "errorcode_1003":"添加薪水失败，请重试",
-          "errorcode_1004":"取所有记录失败，请重试",
-          "errorcode_1005":"您还没有任何记录，请添加记录",
-          
-          "errorcode_1080":"取任务失败，请重试",
-          "errorcode_1081":"取所有任务失败，请重试",
-          "errorcode_1082":"更新任务失败，请重试",
-          "errorcode_1083":"删除任务失败，请重试",
-          "errorcode_1084":"新建任务失败，请重试",
-          
-          "errorcode_9001":"会话已超时，请重新登录"
-        },
-        "en" : {
-          
-        }
-      };
-    };
-    
-    root.prototype.initHtmls = function(){
-      this.mainContent = '<h3 class="secondary"> @content-title </h3><div class="main-cols"><div class="main-col"><h4>@content-col-1-title</h4><p>@content-col-1-description</p><p><a id="content-col-1-link">@content-col-1-link</a></p></div><div class="main-col"><h4>@content-col-2-title</h4><p>@content-col-2-description</p><p><a id="content-col-2-link">@content-col-2-link</a></p></div><div class="main-col"><h4>@content-col-3-title</h4><p>@content-col-3-description</p><p><a id="content-col-3-link">@content-col-3-link</a></p></div></div>';
-      this.mainFooter = '<div class="ih-aux"><ul><li><a id="mf-ihakula">@footer-ihakula</a></li><li><a id="mf-aboutme">@footer-aboutme</a></li><li><a id="mf-privacy">@footer-privacy</a></li><li><a id="mf-icp">@footer-icp</a></li></ul></div>';
-      this.logoHtml = '<div id="ih-logo"></div>';
-      this.loginHtml = this.logoHtml + '<div id="ih-login" class="ih-dialog">' +
-            '<header class="hero">' +
-              '<hgroup>' +
-                '<h3>Sign in</h3>' +
-                '<p class="intro">Use the iHakula ID you used to register or register now.</p>' +
-              '</hgroup>' +
-            '</header>' +
-            '<div class="dialog-cell">' +
-              '<font size="2"><label for="accountname"><span class="dslabel">iHakula ID:</span></label></font>' +
-              '<input size="30" autocapitalize="off" autocorrect="off" maxlength="128" id="accountname" type="text" value="" name="theAccountName"/>' +
-            '</div>' +
-            '<div class="dialog-cell">' +
-              '<font size="2"><label for="accountpassword"><span class="dslabel">Password:</span></label></font>' +
-              '<input size="30" autocapitalize="off" oncut="return false ;" oncopy="return false ;" autocorrect="off" maxlength="32" id="accountpassword" type="password" name="theAccountPW"/>' +
-            '</div>' +
-            '<div style="height:33px;">' +
-              '<a id="ih-register-btn" class="button large register-button"><span>Register</span></a>' +
-              '<a id="ih-login-btn" class="button large blue signin-button"><span>Sign In</span></a>' +
-            '</div>' +
-            '<div class="divider"></div>' +
-            '<a id="ih-forgetPwd-btn" class="forgot-button">Forgot ID or Password?</a>' +
-      
-          '</div>';
-    this.registerHtml = this.logoHtml + '<div id="ih-register" class="ih-dialog">' +
-            '<header class="hero">' +
-                '<hgroup>' +
-                    '<h3>Register</h3>' +
-                    '<p class="intro">Use email set as your iHakula ID.</p>' +
-                '</hgroup>' +
-            '</header>' +
-            '<div class="dialog-cell">' +
-                '<font size="2"><label for="accountname"><span class="dslabel">iHakula ID:</span></label></font>' +
-                '<input size="30" autocapitalize="off" autocorrect="off" maxlength="128" id="accountname" type="text" value="" name="theAccountName"/>' +
-            '</div>' +
-            '<div class="dialog-cell">' +
-                '<font size="2"><label for="accountpassword"><span class="dslabel">Password:</span></label></font>' +
-                '<input size="30" autocapitalize="off" oncut="return false ;" oncopy="return false ;" autocorrect="off" maxlength="32" id="accountpassword" type="password" name="theAccountPW"/>' +
-            '</div>' +
-            '<div class="dialog-cell">' +
-                '<font size="2"><label for="confirmpassword"><span class="dslabel">Confrim:</span></label></font>' +
-                '<input size="30" autocapitalize="off" oncut="return false ;" oncopy="return false ;" autocorrect="off" maxlength="32" id="confirmpassword" type="password" name="confirmAccountPW"/>' +
-            '</div>' +
-            
-            '<div style="height:33px;">' +
-                '<a id="register-cancel" class="button large register-button"><span>Cancel</span></a>' +
-                '<a id="register-sure" class="button large blue signin-button"><span>Sure</span></a>' +
-            '</div>' +
-            '<div class="divider"></div>' +
-            
-        '</div>';
     };
 
   });

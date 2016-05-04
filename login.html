@@ -19,7 +19,7 @@
     </head>
     <body>
         <div id="ih-mask">
-            <a id="mask-button"></a>
+            <!--<a id="mask-button"></a>-->
 
             <div id="ds_container">
                 <div id="ih-logo"></div>
@@ -28,6 +28,14 @@
                         <hgroup>
                             <h3>Sign in</h3>
                             <p class="intro">Use the iHakula ID you used to register or register now.</p>
+                            <div class="error" style="display: none;">
+                                <span class="supress_br">
+                                    <font color="RED" face="Geneva, Verdana, Arial, Helvetica, sans-serif" size="2">
+                                        <span class="dserror">Your Apple ID or password was entered incorrectly.</span>
+                                    </font>
+                                    <br><br>
+                                </span>
+                            </div>
                         </hgroup>
                     </header>
                     <div class="dialog-cell">
@@ -53,7 +61,11 @@
                         <a id="ih-login-btn" class="button large blue signin-button"><span>Sign In</span></a>
                     </div>
                     <div class="divider"></div>
-                    <a id="ih-forgetPwd-btn" class="forgot-button">Forgot ID or Password?</a></div>
+                    <div style="height: 50px">
+                        <a id="ih-forgetPwd-btn" class="forgot-button">Forgot ID or Password?</a>
+                    </div>
+                    </div>
+
             </div>
         </div>
       <div id="dialog"></div>
