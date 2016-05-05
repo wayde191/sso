@@ -152,71 +152,57 @@
             return;
         }
 
-        //todo
-		
 		public function logout()
 		{
-			session_start();
-			setcookie(session_name(), session_id(), -1, '/');
-			session_unset();
-			if(session_destroy()){
-				echo json_encode(array("status" => 1));
-			} else {
-				echo json_encode(array("status" => 0));
-			}
+            if(!$this->checkSecretKey()){
+                echo json_encode(array(
+                    "status" => IhCode::request_fails,
+                    "errorCode" => IhCode::security_code_error));
+                return;
+            }
+
+			$this->IhSession->clear_session();
+            echo json_encode(array("status" => IhCode::request_success));
 		}
-        
-// http://127.0.0.1/api/index.php/ihuser/login?ihakulaID=%22haha%22&password=%22lala%22
-// http://127.0.0.1/api/index.php/ihuser/login?ihakulaID=a&password=1
-// http://127.0.0.1/api/index.php/ihuser/register?ihakulaID=aa&password=1&confirmPwd=1
 
         public function register(){
+            if(!$this->checkSecretKey()){
+                echo json_encode(array(
+                    "status" => IhCode::request_fails,
+                    "errorCode" => IhCode::security_code_error));
+                return;
+            }
 			
-            $nickname = isset($_POST['nickname']) ? $_POST['nickname'] : NULL;
-            $username = isset($_POST['ihakulaID']) ? $_POST['ihakulaID'] : NULL;
-            $password = isset($_POST['password']) ? $_POST['password'] : NULL;
-			$confirmPwd = isset($_POST['confirmPwd']) ? $_POST['confirmPwd'] : NULL;
-            
-            if(!$nickname || !$username || !$password || !$confirmPwd) {
-                echo json_encode(array("status" => 0, "errorCode" => 900));//not empty
-                return;
-            }else if($password != $confirmPwd){
-                echo json_encode(array("status" => 0, "errorCode" => 901));//not equal
-                return;
+            $nickname = $this->getPostParameter('nickname');
+            $phoneNumber = $this->getPostParameter('ihakulaID');
+            $password = $this->getPostParameter('password');
+
+            if($this->checkUserExist($phoneNumber)){
+                echo json_encode(array(
+                    "status" => IhCode::request_fails,
+                    "errorCode" => IhCode::phone_number_has_been_taken));
             }
             
-            $this->load->database();
-            
-            $query = 'SELECT * FROM ih_users WHERE user_email="'. $username . '"';
-            $query = $this->db->query($query);
-            
-            if (1 == count( $query->result())) {
-                echo json_encode(array("status" => 0, "errorCode" => 902));//email exist
-                return;
-            }
-            
-            date_default_timezone_set('Asia/Chongqing');
             $date = '"'. date('Y-m-d H:i:s') . '"';
-            $this->load->helper('security');
             $pwdMD5Str = do_hash($password, 'md5');
             
             $sql = "INSERT INTO  `ih_users` (
             `user_nickname` ,
-            `user_email` ,
+            `phone` ,
             `user_pass` ,
             `user_registered` ,
             `user_lasttime_login`
             )
             VALUES (
-                    '$nickname', '$username', '$pwdMD5Str', $date, $date
+                    '$nickname', '$phoneNumber', '$pwdMD5Str', $date, $date
                     )";
             
             $this->db->query($sql);
             
             if (1 == $this->db->affected_rows()) {
-                echo json_encode(array("status" => 1));
+                echo json_encode(array("status" => IhCode::request_success));
             } else {
-                echo json_encode(array("status" => 0, "errorCode" => 903));//insert error
+                echo json_encode(array("status" => IhCode::request_fails, "errorCode" => IhCode::sql_error));
             }
             
             return;
