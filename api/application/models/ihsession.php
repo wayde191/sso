@@ -35,12 +35,12 @@
                 ini_set('session.gc_maxlifetime', $expire);
             }
 
-            if (empty($_COOKIE['HAKULA_SESSION_ID'])) {
+            if (empty($_COOKIE['PHPSESSID'])) {
                 session_set_cookie_params($expire);
                 session_start();
             } else {
                 session_start();
-                setcookie('HAKULA_SESSION_ID', session_id(), time() + $expire, '/');
+                setcookie('PHPSESSID', session_id(), time() + $expire, '/');
             }
         }
     }

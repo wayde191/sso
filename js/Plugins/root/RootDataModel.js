@@ -13,7 +13,7 @@
   
     dm.prototype.init = function(){
       this.request = new ih.Service();
-      this.sysUser = new ih.User();
+      this.sysUser = {};
       this.pubsub = new ih.PubSub();
       this.delegate = null;
     };
@@ -21,13 +21,13 @@
     dm.prototype.doLogin = function(paras){
       this.request.callService(paras, ih.$F(function(response){
         if (1 == response.status) {
-            this.sysUser.setUserInfo(response);
+            this.sysUser = response.user;
             this.delegate.loginSuccess();
             this.pubsub.publish("loginSucceed");
         } else {
             this.delegate.loginFailed(response.errorCode);
         }
-      }).bind(this), ih.rootUrl + "user/login", "POST");
+      }).bind(this), ih.rootUrl + "IhUser/login", "POST");
     };
     
     dm.prototype.doRegister = function(paras){
@@ -38,7 +38,7 @@
               } else {
                   this.delegate.registerFailed(response.errorCode);
               }
-          }).bind(this), ih.rootUrl + "user/register", "POST");
+          }).bind(this), ih.rootUrl + "IhUser/register", "POST");
     };
 
   });

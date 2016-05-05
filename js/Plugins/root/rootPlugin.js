@@ -12,9 +12,7 @@
   ih.defineClass("ih.plugins.rootPlugin", null, null, function(PLUGIN, plugin){
   
     plugin.prototype.init = function(){
-//      ih.rootUrl = "http://localhost/ihakula/api/index.php/";
-//      ih.hostRoot = "http://localhost/ihakula/";
-      ih.rootUrl = "http://localhost/sso/api/index.php/";
+      ih.rootUrl = "/sso/api/index.php/";
       ih.hostRoot = "http://www.ihakula.com/";
       this.setupSysConfigurations();
     };
@@ -50,11 +48,6 @@
     
     plugin.prototype.hideMaskSpinner = function(){
       this.spinner.stop();
-      $("#ih-mask").addAnimation("fadeOut");
-      var tempF = function(){
-        $("#ih-mask").css("display", "none");
-      };
-      window.setTimeout(tempF, 2000);
     };
     
     plugin.prototype.scriptsLoaded = function(){

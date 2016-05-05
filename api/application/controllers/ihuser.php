@@ -2,7 +2,8 @@
     
     // ErrorCode start with 900
     
-    class IhUser extends CI_Controller {
+    class IhUser extends CI_Controller
+    {
         
         function __construct()
         {
@@ -165,7 +166,8 @@
             echo json_encode(array("status" => IhCode::request_success));
 		}
 
-        public function register(){
+        public function register()
+        {
             if(!$this->checkSecretKey()){
                 echo json_encode(array(
                     "status" => IhCode::request_fails,

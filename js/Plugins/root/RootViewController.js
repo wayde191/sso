@@ -11,10 +11,6 @@
       this.dm.delegate = this;
       this.setupErrorinfo();
       this.setupClickEvent();
-
-      if(this.dm.sysUser.isLogin()) {
-        this.setUserinfo();
-      }
     };
     
     root.prototype.setupClickEvent = function(){
@@ -94,48 +90,23 @@
         this.showErrorMessage({title:"", text:"请输入密码"});
         return;
       }
-      
-      var target = document.getElementById('ds_container');
-      this.registerSpinner = new Spinner(ih.plugins.rootPlugin.spinnerDefaultOpts).spin(target);
-      this.dm.doLogin({ihakulaID:accountName, password:accountPassword});
+
+      ih.plugins.rootPlugin.showMaskSpinner();
+      this.dm.doLogin({ihakulaID:accountName, password:accountPassword, sCode:'iHakulaSecurityCode2016'});
     };
     
     root.prototype.loginSuccess = function(){
-      this.registerSpinner.stop();
-      this.onCloseMaskBtnClicked();
+      ih.plugins.rootPlugin.hideMaskSpinner();
       this.setUserinfo();
     };
     
     root.prototype.loginFailed = function(errorCode){
-      this.registerSpinner.stop();
-      this.onCloseMaskBtnClicked();
-      this.showMessage({title:"温馨提示", text:this.errorInfo[errorCode]});
+      ih.plugins.rootPlugin.hideMaskSpinner();
+      this.showErrorMessage({title:"温馨提示", text:this.errorInfo[errorCode]});
     };
     
     root.prototype.setUserinfo = function(){
-      $("#ih-hi").html("hi," + this.dm.sysUser.name);
-      $("#ih-login-button").html("Logout");
-      $("#ih-login-button").unbind("click");
-      $("#ih-login-button").click(ih.$F(function(){
-      var me = this;
-        $('#dialog').dialog({
-            autoOpen: false,
-            width: 600,
-            title: "温馨提示",
-            buttons: {
-                "Ok": function() {
-                  me.setUserLogout();
-                  $(this).dialog("close");
-                },
-                "Cancel": function() {
-                    $(this).dialog("close");
-                }
-            }
-        });
 
-        // Dialog Link
-        $('#dialog').html("确认登出？").dialog('open');
-      }).bind(this));
     };
     
     root.prototype.setUserLogout = function(){
@@ -185,7 +156,10 @@
     
     root.prototype.setupErrorinfo = function(){
       this.errorInfo = {
-        900 : "hello error"
+        1101 : "请确保是合法访问",
+        1201 : "该用户已经登录",
+        905 : "该用户不存在",
+        904 : "密码错误"
       };
     };
 
