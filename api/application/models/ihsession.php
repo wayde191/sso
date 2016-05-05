@@ -1,5 +1,5 @@
 <?php
-    Class Ihsession extends CI_Model
+    Class IhSession extends CI_Model
     {
         function refreshSession()
         {
@@ -18,6 +18,30 @@
                 $_SESSION['SESS_TIMEOUT'] = $_SERVER['REQUEST_TIME'] + 604800;
                 return 1;
             }			
+        }
+
+        function clear_session()
+        {
+            setcookie(session_name(), session_id(), -1, '/');
+            session_unset();
+            session_destroy();
+        }
+
+        function start_session($expire = 0)
+        {
+            if ($expire == 0) {
+                $expire = ini_get('session.gc_maxlifetime');
+            } else {
+                ini_set('session.gc_maxlifetime', $expire);
+            }
+
+            if (empty($_COOKIE['HAKULA_SESSION_ID'])) {
+                session_set_cookie_params($expire);
+                session_start();
+            } else {
+                session_start();
+                setcookie('HAKULA_SESSION_ID', session_id(), time() + $expire, '/');
+            }
         }
     }
 ?>
