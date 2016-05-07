@@ -41,7 +41,7 @@
       $("#ih-mask").css("display", "block");
       $("#ih-mask").addAnimation("fadeIn");
       var target = document.getElementById('ds_container');
-      this.spinnerDefaultOpts.color = '#ffffff';
+      this.spinnerDefaultOpts.color = '#000';
       this.spinnerDefaultOpts.top = '200px';
       this.spinner = new Spinner(ih.plugins.rootPlugin.spinnerDefaultOpts).spin(target);
     };

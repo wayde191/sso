@@ -21,9 +21,6 @@
         }
       });
 
-      $("#ih-register-btn").click(ih.$F(function(){
-        this.onRegisterBtnClicked();
-      }).bind(this));
       $("#ih-login-btn").click(ih.$F(function(){
         this.onSignInBtnClicked();
       }).bind(this));
@@ -34,11 +31,8 @@
       $("#mask-button").click(ih.$F(function(){
         this.onCloseMaskBtnClicked();
       }).bind(this));
-    };
-    
-    root.prototype.onRegisterBtnClicked = function(){
-      $("#ds_container").html(this.registerHtml);
-      
+
+      // Register
       $("#register-cancel").click(ih.$F(function(){
         this.onCloseMaskBtnClicked();
       }).bind(this));
@@ -53,30 +47,34 @@
       var confirmPassword = $("#confirmpassword")[0].value;
       
       if(!accountName || !accountPassword || !confirmPassword){
-        this.showMessage({title:"温馨提示", text:"三项均不能为空"});
+        this.showErrorMessage({title:"温馨提示", text:"三项均不能为空"});
+        return;
+      } else if (!this.dm.checkMobile(accountName)){
+        this.showErrorMessage({title:"温馨提示", text:"请输入正确的手机号"});
         return;
       } else if(accountPassword != confirmPassword) {
-        this.showMessage({title:"温馨提示", text:"密码确认不相等，请重新输入"});
+        this.showErrorMessage({title:"温馨提示", text:"密码确认不相等，请重新输入"});
         $("#accountpassword").val("");
         $("#confirmpassword").val("");
         return;
       }
       
-      var target = document.getElementById('ds_container');
-      this.registerSpinner = new Spinner(ih.plugins.rootPlugin.spinnerDefaultOpts).spin(target);
+      ih.plugins.rootPlugin.showMaskSpinner();
       this.dm.doRegister({ihakulaID:accountName, password:accountPassword, confirmPwd:confirmPassword});
     };
     
     root.prototype.registerSuccess = function(){
-      this.registerSpinner.stop();
-      $("#ds_container").html(this.loginHtml);
-      this.showMessage({title:"温馨提示", text:this.languages[this.selectedLanguage]["registerSucceed"]});
-      
+      ih.plugins.rootPlugin.hideMaskSpinner();
+      this.showMessage({title:"温馨提示", text:"注册成功，请登录"});
+      var tempF = function(){
+        window.location.href = '/sso/login.html';
+      };
+      window.setTimeout(tempF, 2000);
     };
     
     root.prototype.registerFailed = function(errorCode){
-      this.registerSpinner.stop();
-      this.showMessage({title:"温馨提示", text:this.errorInfo[errorCode]});
+      ih.plugins.rootPlugin.hideMaskSpinner();
+      this.showErrorMessage({title:"温馨提示", text:this.errorInfo[errorCode]});
     };
     
     root.prototype.onSignInBtnClicked = function(){
@@ -92,7 +90,7 @@
       }
 
       ih.plugins.rootPlugin.showMaskSpinner();
-      this.dm.doLogin({ihakulaID:accountName, password:accountPassword, sCode:'iHakulaSecurityCode2016'});
+      this.dm.doLogin({ihakulaID:accountName, password:accountPassword});
     };
     
     root.prototype.loginSuccess = function(){
@@ -129,15 +127,38 @@
       var tempF = function(){
         $("#ih-mask").css("display", "none");
       };
-      window.setTimeout(tempF, 2000);
+      window.setTimeout(tempF, 300);
     };
 
     root.prototype.showErrorMessage = function(dialogMsg){
-      $('.error').css("display", "block");
+      this.showErrorBlock();
+      this.hideInfoBlock();
       $('.error .dserror').html(dialogMsg.text);
     };
-    
+
     root.prototype.showMessage = function(dialogMsg){
+      this.hideErrorBlock();
+      this.showInfoBlock();
+      $('.information .dsinfo').html(dialogMsg.text);
+    };
+
+    root.prototype.showErrorBlock = function(){
+      $('.error').css("display", "block");
+    };
+
+    root.prototype.hideErrorBlock = function(){
+      $('.error').css("display", "none");
+    };
+
+    root.prototype.showInfoBlock = function(){
+      $('.information').css("display", "block");
+    };
+
+    root.prototype.hideInfoBlock = function(){
+      $('.information').css("display", "none");
+    };
+    
+    root.prototype.showDialogMessage = function(dialogMsg){
       // Dialog
         $('#dialog').dialog({
             autoOpen: false,
@@ -159,7 +180,8 @@
         1101 : "请确保是合法访问",
         1201 : "该用户已经登录",
         905 : "该用户不存在",
-        904 : "密码错误"
+        904 : "密码错误",
+        903 : "该手机号已经被注册"
       };
     };
 

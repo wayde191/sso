@@ -12,13 +12,15 @@
   ih.defineClass("ih.plugins.rootDataModel", null, null, function(DM, dm){
   
     dm.prototype.init = function(){
-      this.request = new ih.Service();
-      this.sysUser = {};
-      this.pubsub = new ih.PubSub();
-      this.delegate = null;
+        this.request = new ih.Service();
+        this.sysUser = {};
+        this.pubsub = new ih.PubSub();
+        this.delegate = null;
+        this.sCode = 'iHakulaSecurityCode2016';
     };
     
     dm.prototype.doLogin = function(paras){
+        paras.sCode = this.sCode;
       this.request.callService(paras, ih.$F(function(response){
         if (1 == response.status) {
             this.sysUser = response.user;
@@ -31,6 +33,7 @@
     };
     
     dm.prototype.doRegister = function(paras){
+        paras.sCode = this.sCode;
       this.request.callService(paras, ih.$F(function(response){
               console.log(response);
               if (1 == response.status) {
@@ -40,5 +43,9 @@
               }
           }).bind(this), ih.rootUrl + "IhUser/register", "POST");
     };
+
+      dm.prototype.checkMobile = function(phoneNo){
+          return /^1[3|4|5|8][0-9]\d{4,8}$/.test(phoneNo) ? true : false;
+      }
 
   });

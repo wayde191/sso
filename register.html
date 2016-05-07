@@ -19,33 +19,71 @@
 </head>
 <body>
 <div id="ih-mask">
-    <a id="mask-button"></a>
-
     <div id="ds_container">
         <div id="ih-logo"></div>
         <div id="ih-register" class="ih-dialog">
             <header class="hero">
-                <hgroup><h3>Register</h3>
-
-                    <p class="intro">Use email set as your iHakula ID.</p></hgroup>
+                <hgroup>
+                    <h3>Register</h3>
+                    <p class="intro">Use email set as your iHakula ID.</p>
+                    <div class="error" style="display: none;">
+                        <span class="supress_br">
+                            <font color="RED" face="Geneva, Verdana, Arial, Helvetica, sans-serif" size="2">
+                                <span class="dserror">Your Apple ID or password was entered incorrectly.</span>
+                            </font>
+                            <br><br>
+                        </span>
+                    </div>
+                    <div class="information" style="display: none;">
+                        <span class="supress_br">
+                            <font color="GREEN" face="Geneva, Verdana, Arial, Helvetica, sans-serif" size="2">
+                                <span class="dsinfo">Your Apple ID or password was entered incorrectly.</span>
+                            </font>
+                            <br><br>
+                        </span>
+                    </div>
+                </hgroup>
             </header>
-            <div class="dialog-cell"><font size="2"><label for="accountname"><span
-                    class="dslabel">iHakula ID:</span></label></font><input size="30" autocapitalize="off"
-                                                                            autocorrect="off" maxlength="128"
-                                                                            id="accountname" type="text" value=""
-                                                                            name="theAccountName"></div>
-            <div class="dialog-cell"><font size="2"><label for="accountpassword"><span class="dslabel">Password:</span></label></font><input
-                    size="30" autocapitalize="off" oncut="return false ;" oncopy="return false ;" autocorrect="off"
-                    maxlength="32" id="accountpassword" type="password" name="theAccountPW"></div>
-            <div class="dialog-cell"><font size="2"><label for="confirmpassword"><span
-                    class="dslabel">Confrim:</span></label></font><input size="30" autocapitalize="off"
-                                                                         oncut="return false ;" oncopy="return false ;"
-                                                                         autocorrect="off" maxlength="32"
-                                                                         id="confirmpassword" type="password"
-                                                                         name="confirmAccountPW"></div>
-            <div style="height:33px;"><a id="register-cancel"
-                                         class="button large register-button"><span>Cancel</span></a><a
-                    id="register-sure" class="button large blue signin-button"><span>Sure</span></a></div>
+            <div class="dialog-cell">
+                <font size="2">
+                    <label for="accountname"><span class="dslabel">iHakula ID:</span></label>
+                </font>
+                <input size="30" autocapitalize="off"
+                       autocorrect="off" maxlength="128"
+                       id="accountname" type="text" value=""
+                       name="theAccountName">
+            </div>
+            <div class="dialog-cell">
+                <font size="2">
+                    <label for="accountpassword">
+                        <span class="dslabel">Password:</span>
+                    </label>
+                </font>
+                <input size="30" autocapitalize="off"
+                       oncut="return false ;" oncopy="return false ;"
+                       autocorrect="off" maxlength="32"
+                       id="accountpassword" type="password" name="theAccountPW">
+            </div>
+            <div class="dialog-cell">
+                <font size="2">
+                    <label for="confirmpassword">
+                        <span class="dslabel">Confrim:</span>
+                    </label>
+                </font>
+                <input size="30" autocapitalize="off"
+                       oncut="return false ;" oncopy="return false ;"
+                       autocorrect="off" maxlength="32"
+                       id="confirmpassword" type="password"
+                       name="confirmAccountPW">
+            </div>
+            <div style="height:33px;">
+                <a id="register-cancel" class="button large register-button">
+                    <span>Cancel</span>
+                </a>
+                <a id="register-sure" class="button large blue signin-button">
+                    <span>Sure</span>
+                </a>
+            </div>
             <div class="divider"></div>
         </div>
     </div>

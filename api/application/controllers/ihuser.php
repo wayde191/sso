@@ -23,69 +23,6 @@
             echo "Hello, this is iHakula.com";
         }
 
-        private function isUserLoggedIn($userId)
-        {
-            if(isset($userId) && isset($_SESSION['user_id']) && ($_SESSION['user_id'] == $userId)) {
-                return TRUE;
-            } else {
-                return FALSE;
-            }
-        }
-
-        private function getPostParameter($key)
-        {
-            return isset($_POST[$key]) ? $_POST[$key] : NULL;
-        }
-
-        private function getSignature($userId)
-        {
-            return do_hash($userId.IhCode::i_hakula_secret_key, 'md5');
-        }
-
-        private function checkSecretKey()
-        {
-            $sCode = $this->getPostParameter('sCode');
-            return $sCode == IhCode::i_hakula_security_code ? TRUE : FALSE;
-        }
-
-        private function getUserInfo($userId)
-        {
-            $query = 'SELECT * FROM ih_users WHERE phone="'. $userId .'"';
-            $query = $this->db->query($query);
-
-            $queryFirstRow = array_shift($query->result());
-
-            echo json_encode(array(
-                "status" => IhCode::request_success,
-                "user" => array(
-                    "email" => $queryFirstRow->user_email,
-                    "id" => $queryFirstRow->ID,
-                    "group_id" => $queryFirstRow->group_id,
-                    "name" => $queryFirstRow->user_nickname,
-                    "role" => $queryFirstRow->role,
-                    "platform" => $queryFirstRow->platform,
-                    "sex" => $queryFirstRow->sex,
-                    "avatar" => $queryFirstRow->avatar,
-                    "registeredTime" => $queryFirstRow->user_registered,
-                    "latestLoggedinTime" => $queryFirstRow->user_lasttime_login,
-                    "phone" => $queryFirstRow->phone,
-                    "token" => $this->getSignature($userId))));
-        }
-
-        private function checkUserExist($userId)
-        {
-            $query = 'SELECT * FROM ih_users WHERE phone="'. $userId . '"';
-            $query = $this->db->query($query);
-            return 1 == count( $query->result()) ? TRUE : FALSE;
-        }
-
-        private function updateUserLoggedInCounter($userLoggedInCount, $userId)
-        {
-            $date = '"'. date('Y-m-d H:i:s') . '"';
-            $sql = "UPDATE `ih_users` SET `user_login_times` = " . $userLoggedInCount . ", `user_lasttime_login` = ". $date ." WHERE  `phone` ='" . $userId . "'";
-            $this->db->query($sql);
-        }
-
         public function login()
         {
             if(!$this->checkSecretKey()){
@@ -183,6 +120,7 @@
                 echo json_encode(array(
                     "status" => IhCode::request_fails,
                     "errorCode" => IhCode::phone_number_has_been_taken));
+                return;
             }
             
             $date = '"'. date('Y-m-d H:i:s') . '"';
@@ -208,5 +146,71 @@
             }
             
             return;
+        }
+
+
+        // Private Method
+        private function isUserLoggedIn($userId)
+        {
+            if(isset($userId) && isset($_SESSION['user_id']) && ($_SESSION['user_id'] == $userId)) {
+                return TRUE;
+            } else {
+                return FALSE;
+            }
+        }
+
+        private function getPostParameter($key)
+        {
+            return isset($_POST[$key]) ? $_POST[$key] : NULL;
+        }
+
+        private function getSignature($userId)
+        {
+            $date = '"'. date('Y-m-d H:i:s') . '"';
+            return do_hash($userId.IhCode::i_hakula_secret_key.$date, 'md5');
+        }
+
+        private function checkSecretKey()
+        {
+            $sCode = $this->getPostParameter('sCode');
+            return $sCode == IhCode::i_hakula_security_code ? TRUE : FALSE;
+        }
+
+        private function getUserInfo($userId)
+        {
+            $query = 'SELECT * FROM ih_users WHERE phone="'. $userId .'"';
+            $query = $this->db->query($query);
+
+            $queryFirstRow = array_shift($query->result());
+
+            echo json_encode(array(
+                "status" => IhCode::request_success,
+                "user" => array(
+                    "email" => $queryFirstRow->user_email,
+                    "id" => $queryFirstRow->ID,
+                    "group_id" => $queryFirstRow->group_id,
+                    "name" => $queryFirstRow->user_nickname,
+                    "role" => $queryFirstRow->role,
+                    "platform" => $queryFirstRow->platform,
+                    "sex" => $queryFirstRow->sex,
+                    "avatar" => $queryFirstRow->avatar,
+                    "registeredTime" => $queryFirstRow->user_registered,
+                    "latestLoggedinTime" => $queryFirstRow->user_lasttime_login,
+                    "phone" => $queryFirstRow->phone,
+                    "token" => $this->getSignature($userId))));
+        }
+
+        private function checkUserExist($userId)
+        {
+            $query = 'SELECT * FROM ih_users WHERE phone="'. $userId . '"';
+            $query = $this->db->query($query);
+            return 1 == count( $query->result()) ? TRUE : FALSE;
+        }
+
+        private function updateUserLoggedInCounter($userLoggedInCount, $userId)
+        {
+            $date = '"'. date('Y-m-d H:i:s') . '"';
+            $sql = "UPDATE `ih_users` SET `user_login_times` = " . $userLoggedInCount . ", `user_lasttime_login` = ". $date ." WHERE  `phone` ='" . $userId . "'";
+            $this->db->query($sql);
         }
     }
