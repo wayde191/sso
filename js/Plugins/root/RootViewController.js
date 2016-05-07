@@ -96,6 +96,8 @@
     root.prototype.loginSuccess = function(){
       ih.plugins.rootPlugin.hideMaskSpinner();
       this.setUserinfo();
+      this.onCloseMaskBtnClicked();
+      $('.forwarding').css("display", "block");
     };
     
     root.prototype.loginFailed = function(errorCode){

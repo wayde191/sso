@@ -746,4 +746,10 @@ background-image: linear-gradient(to bottom, #3B9BE3, #2872be);
   border-bottom: 1px solid #fff;
 }
 
+.forwarding {
+	width: 100%;
+	height: 100%;
+	margin-top: 100px;
+	text-align: center;
+}
 

@@ -36,54 +36,54 @@
             $password = $this->getPostParameter('password');
             $token = $this->getPostParameter('token');
 
-            if($this->isUserLoggedIn($userId)) {
-                if ($token == $this->getSignature($userId)) {
-                    $this->getUserInfo($userId);
-                } else {
-                    echo json_encode(array(
-                        "status" => IhCode::request_fails,
-                        "errorCode" => IhCode::token_not_correct));
-                }
+            if(!$this->checkUserExist($userId)){
+                echo json_encode(array(
+                    "status" => IhCode::request_fails,
+                    "errorCode" => IhCode::user_not_exist));
+                return;
+            }
+
+            $uid = $this->getUserIdByPhone($userId);
+
+            if($this->isUserLoggedIn($uid, $token)) {
+                $this->getUserInfo($userId, $token);
             } else {
                 $pwdMD5Str = do_hash($password, 'md5');
 
-                if($this->checkUserExist($userId)){
-                    $query = 'SELECT * FROM ih_users WHERE phone="'. $userId . '" and user_pass="' . $pwdMD5Str .'"';
-                    $query = $this->db->query($query);
+                $query = 'SELECT * FROM ih_users WHERE phone="'. $userId . '" and user_pass="' . $pwdMD5Str .'"';
+                $query = $this->db->query($query);
 
-                    if (1 == count( $query->result())) {
-                        $queryFirstRow = array_shift($query->result());
+                if (1 == count( $query->result())) {
+                    $queryFirstRow = array_shift($query->result());
 
-                        $userLoggedInCount = $queryFirstRow->user_login_times;
-                        $userLoggedInCount++;
-                        $this->updateUserLoggedInCounter($userLoggedInCount, $userId);
-                        $_SESSION['user_id'] = $userId;
+                    $userLoggedInCount = $queryFirstRow->user_login_times;
+                    $userLoggedInCount++;
+                    $this->updateUserLoggedInCounter($userLoggedInCount, $userId);
 
-                        echo json_encode(array(
-                            "status" => IhCode::request_success,
-                            "user" => array(
-                                "email" => $queryFirstRow->user_email,
-                                "id" => $queryFirstRow->ID,
-                                "group_id" => $queryFirstRow->group_id,
-                                "name" => $queryFirstRow->user_nickname,
-                                "role" => $queryFirstRow->role,
-                                "platform" => $queryFirstRow->platform,
-                                "sex" => $queryFirstRow->sex,
-                                "avatar" => $queryFirstRow->avatar,
-                                "registeredTime" => $queryFirstRow->user_registered,
-                                "latestLoggedinTime" => $queryFirstRow->user_lasttime_login,
-                                "phone" => $queryFirstRow->phone,
-                                "token" => $this->getSignature($userId))));
+                    $_SESSION['user_id'] = $userId;
+                    $sig = $this->getSignature($userId);
+                    $this->insertSession($uid, $sig);
 
-                    } else {
-                        echo json_encode(array(
-                            "status" => IhCode::request_fails,
-                            "errorCode" => IhCode::password_wrong));
-                    }
+                    echo json_encode(array(
+                        "status" => IhCode::request_success,
+                        "user" => array(
+                            "email" => $queryFirstRow->user_email,
+                            "id" => $queryFirstRow->ID,
+                            "group_id" => $queryFirstRow->group_id,
+                            "name" => $queryFirstRow->user_nickname,
+                            "role" => $queryFirstRow->role,
+                            "platform" => $queryFirstRow->platform,
+                            "sex" => $queryFirstRow->sex,
+                            "avatar" => $queryFirstRow->avatar,
+                            "registeredTime" => $queryFirstRow->user_registered,
+                            "latestLoggedinTime" => $queryFirstRow->user_lasttime_login,
+                            "phone" => $queryFirstRow->phone,
+                            "token" => $sig)));
+
                 } else {
                     echo json_encode(array(
                         "status" => IhCode::request_fails,
-                        "errorCode" => IhCode::user_not_exist));
+                        "errorCode" => IhCode::password_wrong));
                 }
             }
 
@@ -150,13 +150,43 @@
 
 
         // Private Method
-        private function isUserLoggedIn($userId)
+        private function insertSession($uid, $token)
         {
-            if(isset($userId) && isset($_SESSION['user_id']) && ($_SESSION['user_id'] == $userId)) {
-                return TRUE;
-            } else {
+            $ip = $_SERVER["REMOTE_ADDR"];
+            $date = '"'. date("Y-m-d H:i:s",time() + 30*24*60*60) . '"';
+
+            $sql = "INSERT INTO  `ih_session` (
+            `ip` ,
+            `token` ,
+            `user_id` ,
+            `expired_at` ,
+            `created_at` ,
+            `updated_at`
+            )
+            VALUES (
+                    '$ip', '$token', '$uid', $date, $date, $date
+                    )";
+
+            $this->db->query($sql);
+        }
+
+        private function isUserLoggedIn($uid, $token)
+        {
+            if(!(isset($uid) && isset($token))){
                 return FALSE;
             }
+
+            $date = date('Y-m-d H:i:s');
+
+            $query = 'SELECT * FROM ih_session WHERE token="'. $token . '" AND user_id="'. $uid . '" AND expired_at>"'. $date .'"';
+            $query = $this->db->query($query);
+            return 1 == count( $query->result()) ? TRUE : FALSE;
+
+//            if(isset($userId) && isset($_SESSION['user_id']) && ($_SESSION['user_id'] == $userId)) {
+//                return TRUE;
+//            } else {
+//                return FALSE;
+//            }
         }
 
         private function getPostParameter($key)
@@ -176,7 +206,16 @@
             return $sCode == IhCode::i_hakula_security_code ? TRUE : FALSE;
         }
 
-        private function getUserInfo($userId)
+        private function getUserIdByPhone($phone)
+        {
+            $query = 'SELECT * FROM ih_users WHERE phone="'. $phone .'"';
+            $query = $this->db->query($query);
+
+            $queryFirstRow = array_shift($query->result());
+            return $queryFirstRow->ID;
+        }
+
+        private function getUserInfo($userId, $token)
         {
             $query = 'SELECT * FROM ih_users WHERE phone="'. $userId .'"';
             $query = $this->db->query($query);
@@ -197,7 +236,7 @@
                     "registeredTime" => $queryFirstRow->user_registered,
                     "latestLoggedinTime" => $queryFirstRow->user_lasttime_login,
                     "phone" => $queryFirstRow->phone,
-                    "token" => $this->getSignature($userId))));
+                    "token" => $token)));
         }
 
         private function checkUserExist($userId)
