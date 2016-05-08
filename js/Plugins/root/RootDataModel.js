@@ -29,7 +29,7 @@
         } else {
             this.delegate.loginFailed(response.errorCode);
         }
-      }).bind(this), ih.rootUrl + "IhUser/login", "POST");
+      }).bind(this), ih.rootUrl + "ihuser/login", "POST");
     };
     
     dm.prototype.doRegister = function(paras){
@@ -41,7 +41,7 @@
               } else {
                   this.delegate.registerFailed(response.errorCode);
               }
-          }).bind(this), ih.rootUrl + "IhUser/register", "POST");
+          }).bind(this), ih.rootUrl + "ihuser/register", "POST");
     };
 
       dm.prototype.checkMobile = function(phoneNo){
