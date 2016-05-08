@@ -23,104 +23,7 @@
     <favorites_list name="sso" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="ihuser.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/application/controllers/ihuser.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.3646408">
-              <caret line="215" column="9" selection-start-line="215" selection-start-column="9" selection-end-line="215" selection-end-column="9" />
-              <folding>
-                <marker date="1462681559000" expanded="true" signature="1648:1733" placeholder="SELECT * FRO..ih_users..." />
-                <marker date="1462681559000" expanded="true" signature="4747:5049" placeholder="INSERT INTO ..." />
-                <marker date="1462681559000" expanded="true" signature="5659:5952" placeholder="INSERT INTO ..." />
-                <marker date="1462681559000" expanded="true" signature="6225:6277" placeholder="SELECT * FRO..ih_ss..." />
-                <marker date="1462681559000" expanded="true" signature="6225:6290" placeholder="SELECT * FRO..ih_session..." />
-                <marker date="1462681559000" expanded="true" signature="6225:6303" placeholder="SELECT * FRO..ih_session..." />
-                <marker date="1462681559000" expanded="true" signature="6225:6319" placeholder="SELECT * FRO..ih_session..." />
-                <marker date="1462681559000" expanded="true" signature="6225:6321" placeholder="SELECT * FRO..ih_session..." />
-                <marker date="1462681559000" expanded="true" signature="6225:6332" placeholder="SELECT * FRO..ih_session..." />
-                <marker date="1462681559000" expanded="true" signature="6225:6333" placeholder="SELECT * FRO..ih_session..." />
-                <marker date="1462681559000" expanded="true" signature="7269:7318" placeholder="SELECT * FRO..ih_users..." />
-                <marker date="1462681559000" expanded="true" signature="7565:7615" placeholder="SELECT * FRO..ih_users..." />
-                <marker date="1462681559000" expanded="true" signature="8637:8688" placeholder="SELECT * FRO..ih_users..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IhSession.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/application/models/IhSession.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="39" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="30" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="30" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="753" column="1" selection-start-line="753" selection-start-column="1" selection-end-line="753" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rootPlugin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Plugins/root/rootPlugin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RootDataModel.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Plugins/root/RootDataModel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="46" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ihcode.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/application/models/ihcode.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="24" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RootViewController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/Plugins/root/RootViewController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="99" column="47" selection-start-line="99" selection-start-column="47" selection-end-line="99" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -218,60 +121,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="root" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -327,28 +176,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sso" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="api" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -829,12 +656,12 @@
       <workItem from="1462584696299" duration="6223000" />
       <workItem from="1462681161999" duration="460000" />
       <workItem from="1462685798853" duration="26000" />
-      <workItem from="1462689138111" duration="279000" />
+      <workItem from="1462689138111" duration="440000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32764000" />
+    <option name="totallyTimeSpent" value="32925000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -844,7 +671,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4661558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4661558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -854,7 +681,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -873,14 +700,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/Plugins/root/RootViewController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/api/application/controllers/user.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -893,19 +712,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1462681559000" expanded="true" signature="1648:1733" placeholder="SELECT * FRO..ih_users..." />
-            <marker date="1462681559000" expanded="true" signature="4747:5049" placeholder="INSERT INTO ..." />
-            <marker date="1462681559000" expanded="true" signature="5659:5952" placeholder="INSERT INTO ..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6277" placeholder="SELECT * FRO..ih_ss..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6290" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6303" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6319" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6321" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6332" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6333" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="7269:7318" placeholder="SELECT * FRO..ih_users..." />
-            <marker date="1462681559000" expanded="true" signature="7565:7615" placeholder="SELECT * FRO..ih_users..." />
-            <marker date="1462681559000" expanded="true" signature="8637:8688" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_ss..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_users..." />
           </folding>
         </state>
       </provider>
@@ -969,19 +788,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="44" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="44" />
           <folding>
-            <marker date="1462681559000" expanded="true" signature="1648:1733" placeholder="SELECT * FRO..ih_users..." />
-            <marker date="1462681559000" expanded="true" signature="4747:5049" placeholder="INSERT INTO ..." />
-            <marker date="1462681559000" expanded="true" signature="5659:5952" placeholder="INSERT INTO ..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6277" placeholder="SELECT * FRO..ih_ss..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6290" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6303" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6319" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6321" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6332" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6333" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="7269:7318" placeholder="SELECT * FRO..ih_users..." />
-            <marker date="1462681559000" expanded="true" signature="7565:7615" placeholder="SELECT * FRO..ih_users..." />
-            <marker date="1462681559000" expanded="true" signature="8637:8688" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_ss..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_users..." />
           </folding>
         </state>
       </provider>
@@ -1203,7 +1022,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/application/models/IhSession.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.738652">
           <caret line="42" column="39" selection-start-line="42" selection-start-column="39" selection-end-line="42" selection-end-column="51" />
           <folding />
         </state>
@@ -1218,7 +1037,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Plugins/root/rootPlugin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.54701984">
           <caret line="43" column="43" selection-start-line="43" selection-start-column="43" selection-end-line="43" selection-end-column="43" />
           <folding />
         </state>
@@ -1233,7 +1052,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.7986755">
           <caret line="753" column="1" selection-start-line="753" selection-start-column="1" selection-end-line="753" selection-end-column="1" />
           <folding />
         </state>
@@ -1241,7 +1060,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Plugins/root/RootDataModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.4463576">
           <caret line="34" column="46" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
           <folding />
         </state>
@@ -1249,7 +1068,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.66024756">
           <caret line="70" column="30" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="30" />
           <folding>
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1274,7 +1093,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/application/models/ihcode.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.31361762">
           <caret line="12" column="24" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="24" />
           <folding />
         </state>
@@ -1282,22 +1101,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api/application/controllers/ihuser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3646408">
-          <caret line="215" column="9" selection-start-line="215" selection-start-column="9" selection-end-line="215" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.1045392">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="16" />
           <folding>
-            <marker date="1462681559000" expanded="true" signature="1648:1733" placeholder="SELECT * FRO..ih_users..." />
-            <marker date="1462681559000" expanded="true" signature="4747:5049" placeholder="INSERT INTO ..." />
-            <marker date="1462681559000" expanded="true" signature="5659:5952" placeholder="INSERT INTO ..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6277" placeholder="SELECT * FRO..ih_ss..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6290" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6303" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6319" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6321" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6332" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="6225:6333" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1462681559000" expanded="true" signature="7269:7318" placeholder="SELECT * FRO..ih_users..." />
-            <marker date="1462681559000" expanded="true" signature="7565:7615" placeholder="SELECT * FRO..ih_users..." />
-            <marker date="1462681559000" expanded="true" signature="8637:8688" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_ss..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1462681559000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/application/models/ihaccount.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.8812156">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1461802328000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_account_field..." />
+            <marker date="1461802328000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_account_field_detail..." />
+            <marker date="1461802328000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_account_wealth..." />
+            <marker date="1461802328000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1461802328000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1461802328000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_account_field..." />
+            <marker date="1461802328000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_account_field_detail..." />
+            <marker date="1461802328000" expanded="true" signature="-1:-1" placeholder="SELECT *FROM..ih_account_group..." />
+            <marker date="1461802328000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_account_field..." />
+            <marker date="1461802328000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_account_field_detail..." />
+            <marker date="1461802328000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1461802328000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..ih_account_money..." />
           </folding>
         </state>
       </provider>
