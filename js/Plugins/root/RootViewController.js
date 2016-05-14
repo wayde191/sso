@@ -94,10 +94,17 @@
     };
     
     root.prototype.loginSuccess = function(){
+      var me = this;
+
       ih.plugins.rootPlugin.hideMaskSpinner();
       this.setUserinfo();
       this.onCloseMaskBtnClicked();
       $('.forwarding').css("display", "block");
+
+      var tempF = ih.$F(function(){
+        this.dm.redirectCallback();
+      }).bind(me);
+      window.setTimeout(tempF, 1000);
     };
     
     root.prototype.loginFailed = function(errorCode){

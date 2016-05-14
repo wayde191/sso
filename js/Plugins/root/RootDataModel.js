@@ -17,11 +17,13 @@
         this.pubsub = new ih.PubSub();
         this.delegate = null;
         this.sCode = 'iHakulaSecurityCode2016';
+
+        this.setWhiteList();
+        this.setRedirectUrl();
     };
     
     dm.prototype.doLogin = function(paras){
-        paras.sCode = this.sCode;
-      this.request.callService(paras, ih.$F(function(response){
+      this.request.callService(this.wrapParameters(paras), ih.$F(function(response){
         if (1 == response.status) {
             this.sysUser = response.user;
             this.delegate.loginSuccess();
@@ -33,9 +35,7 @@
     };
     
     dm.prototype.doRegister = function(paras){
-        paras.sCode = this.sCode;
-      this.request.callService(paras, ih.$F(function(response){
-              console.log(response);
+      this.request.callService(this.wrapParameters(paras), ih.$F(function(response){
               if (1 == response.status) {
                   this.delegate.registerSuccess();
               } else {
@@ -46,6 +46,79 @@
 
       dm.prototype.checkMobile = function(phoneNo){
           return /^1[3|4|5|8][0-9]\d{4,8}$/.test(phoneNo) ? true : false;
+      };
+
+      dm.prototype.wrapParameters = function (paras) {
+          paras.sCode = this.sCode;
+          return paras;
+      };
+
+      dm.prototype.getParameter = function(name) {
+          var url = document.location.href;
+          var start = url.indexOf("?")+1;
+          if (start==0) {
+              return "";
+          }
+          var value = "";
+          var queryString = url.substring(start);
+          var paraNames = queryString.split("&");
+          for (var i=0; i<paraNames.length; i++) {
+              if (name == this.getParameterName(paraNames[i])) {
+                  value = this.getParameterValue(paraNames[i])
+              }
+          }
+          return value;
+      };
+
+      dm.prototype.getParameterName = function(str) {
+          var start = str.indexOf("=");
+          if (start==-1) {
+              return str;
+          }
+          return str.substring(0,start);
+      };
+
+      dm.prototype.getParameterValue = function(str) {
+          var start = str.indexOf("=");
+          if (start==-1) {
+              return "";
+          }
+          return str.substring(start+1);
+      };
+
+      dm.prototype.setRedirectUrl = function(){
+          var url = this.getParameter('redirect');
+          this.redirectUrl = url;
+          if( this.redirectUrl === '' ){
+              gotoIHakula();
+          } else {
+              if(!contains(this.whiteList, this.redirectUrl)){
+                  gotoIHakula();
+              }
+          }
+      };
+
+      dm.prototype.setWhiteList = function(){
+          this.whiteList = ['http://localhost:3000/productions.html'];
+      };
+
+      dm.prototype.redirectCallback = function(){
+          window.location.href = this.redirectUrl + '?' +
+          'token=' + this.sysUser.token +
+          '&id=' + this.sysUser.id;
+      };
+
+      function gotoIHakula(){
+          window.location.href = 'http://www.ihakula.com/';
+      };
+
+      function contains(a, obj) {
+          for (var i = 0; i < a.length; i++) {
+              if (a[i] === obj) {
+                  return true;
+              }
+          }
+          return false;
       }
 
   });
