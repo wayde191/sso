@@ -103,10 +103,10 @@
       };
 
       dm.prototype.redirectCallback = function(){
-          window.location.href = this.redirectUrl + '?' +
-              'token=' + this.sysUser.token +
-              '&username=' + this.sysUser.phone +
-              '&id=' + this.sysUser.id;
+          window.location.href = this.redirectUrl + '#/callback' +
+              '/' + this.sysUser.token +
+              '/' + this.sysUser.phone +
+              '/' + this.sysUser.id;
       };
 
       function gotoIHakula(){
