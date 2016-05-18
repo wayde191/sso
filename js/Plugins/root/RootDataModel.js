@@ -104,8 +104,9 @@
 
       dm.prototype.redirectCallback = function(){
           window.location.href = this.redirectUrl + '?' +
-          'token=' + this.sysUser.token +
-          '&id=' + this.sysUser.id;
+              'token=' + this.sysUser.token +
+              '&username=' + this.sysUser.phone +
+              '&id=' + this.sysUser.id;
       };
 
       function gotoIHakula(){
