@@ -23,6 +23,29 @@
             echo "Hello, this is iHakula.com";
         }
 
+        public function isLoggedIn()
+        {
+            if(!$this->checkSecretKey()){
+                echo json_encode(array(
+                    "status" => IhCode::request_fails,
+                    "errorCode" => IhCode::security_code_error));
+                return;
+            }
+
+            $uid = $this->getPostParameter('userId');
+            $token = $this->getPostParameter('token');
+
+            if($this->isUserLoggedIn($uid, $token)) {
+                echo json_encode(array(
+                    "status" => IhCode::request_success,
+                    ));
+            } else {
+                echo json_encode(array(
+                    "status" => IhCode::request_fails,
+                ));
+            }
+        }
+
         public function login()
         {
             if(!$this->checkSecretKey()){
