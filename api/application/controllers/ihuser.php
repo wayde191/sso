@@ -32,7 +32,7 @@
                 return;
             }
 
-            $uid = $this->getPostParameter('userId');
+            $uid = $this->getPostParameter('user-id');
             $token = $this->getPostParameter('token');
 
             if($this->isUserLoggedIn($uid, $token)) {

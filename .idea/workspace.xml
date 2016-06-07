@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="75149c8d-eab3-415c-87a9-1cc88ccd9f96" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/application/controllers/ihuser.php" afterPath="$PROJECT_DIR$/api/application/controllers/ihuser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sso.iml" afterPath="$PROJECT_DIR$/.idea/sso.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sso.iws" />
@@ -38,19 +35,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ihuser.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ihuser.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/application/controllers/ihuser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46142858">
-              <caret line="34" column="50" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="50" />
+            <state vertical-scroll-proportion="-3.392857">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding>
-                <marker date="1465259944000" expanded="true" signature="2383:2468" placeholder="SELECT * FRO..ih_users..." />
-                <marker date="1465259944000" expanded="true" signature="5482:5784" placeholder="INSERT INTO ..." />
-                <marker date="1465259944000" expanded="true" signature="6394:6687" placeholder="INSERT INTO ..." />
-                <marker date="1465259944000" expanded="true" signature="6960:7067" placeholder="SELECT * FRO..ih_session..." />
-                <marker date="1465259944000" expanded="true" signature="8004:8053" placeholder="SELECT * FRO..ih_users..." />
-                <marker date="1465259944000" expanded="true" signature="8300:8350" placeholder="SELECT * FRO..ih_users..." />
-                <marker date="1465259944000" expanded="true" signature="9372:9423" placeholder="SELECT * FRO..ih_users..." />
+                <marker date="1465304212000" expanded="true" signature="2384:2469" placeholder="SELECT * FRO..ih_users..." />
+                <marker date="1465304212000" expanded="true" signature="5483:5785" placeholder="INSERT INTO ..." />
+                <marker date="1465304212000" expanded="true" signature="6395:6688" placeholder="INSERT INTO ..." />
+                <marker date="1465304212000" expanded="true" signature="6961:7068" placeholder="SELECT * FRO..ih_session..." />
+                <marker date="1465304212000" expanded="true" signature="8005:8054" placeholder="SELECT * FRO..ih_users..." />
+                <marker date="1465304212000" expanded="true" signature="8301:8351" placeholder="SELECT * FRO..ih_users..." />
+                <marker date="1465304212000" expanded="true" signature="9373:9424" placeholder="SELECT * FRO..ih_users..." />
               </folding>
             </state>
           </provider>
@@ -66,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ihcode.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ihcode.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api/application/models/ihcode.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.285715">
-              <caret line="24" column="59" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.34068966">
+              <caret line="13" column="24" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -127,7 +124,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+    <option name="x" value="1659" />
+    <option name="y" value="131" />
     <option name="width" value="1440" />
     <option name="height" value="873" />
   </component>
@@ -154,6 +152,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -304,7 +303,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
@@ -365,15 +363,16 @@
       <workItem from="1463531554206" duration="421000" />
       <workItem from="1463580340223" duration="224000" />
       <workItem from="1465258834746" duration="1393000" />
-      <workItem from="1465263708478" duration="327000" />
+      <workItem from="1465263708478" duration="469000" />
+      <workItem from="1465304203379" duration="1214000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42392000" />
+    <option name="totallyTimeSpent" value="43748000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="873" extended-state="6" />
+    <frame x="1659" y="131" width="1440" height="873" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -396,9 +395,9 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -761,27 +760,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/application/models/ihcode.php">
+    <entry file="file://$PROJECT_DIR$/api/application/controllers/ihuser.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.285715">
-          <caret line="24" column="59" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="59" />
-          <folding />
+        <state vertical-scroll-proportion="-3.392857">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <marker date="1465304212000" expanded="true" signature="2384:2469" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1465304212000" expanded="true" signature="5483:5785" placeholder="INSERT INTO ..." />
+            <marker date="1465304212000" expanded="true" signature="6395:6688" placeholder="INSERT INTO ..." />
+            <marker date="1465304212000" expanded="true" signature="6961:7068" placeholder="SELECT * FRO..ih_session..." />
+            <marker date="1465304212000" expanded="true" signature="8005:8054" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1465304212000" expanded="true" signature="8301:8351" placeholder="SELECT * FRO..ih_users..." />
+            <marker date="1465304212000" expanded="true" signature="9373:9424" placeholder="SELECT * FRO..ih_users..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/application/controllers/ihuser.php">
+    <entry file="file://$PROJECT_DIR$/api/application/models/ihcode.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46142858">
-          <caret line="34" column="50" selection-start-line="34" selection-start-column="44" selection-end-line="34" selection-end-column="50" />
-          <folding>
-            <marker date="1465259944000" expanded="true" signature="2383:2468" placeholder="SELECT * FRO..ih_users..." />
-            <marker date="1465259944000" expanded="true" signature="5482:5784" placeholder="INSERT INTO ..." />
-            <marker date="1465259944000" expanded="true" signature="6394:6687" placeholder="INSERT INTO ..." />
-            <marker date="1465259944000" expanded="true" signature="6960:7067" placeholder="SELECT * FRO..ih_session..." />
-            <marker date="1465259944000" expanded="true" signature="8004:8053" placeholder="SELECT * FRO..ih_users..." />
-            <marker date="1465259944000" expanded="true" signature="8300:8350" placeholder="SELECT * FRO..ih_users..." />
-            <marker date="1465259944000" expanded="true" signature="9372:9423" placeholder="SELECT * FRO..ih_users..." />
-          </folding>
+        <state vertical-scroll-proportion="0.34068966">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
