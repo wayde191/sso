@@ -99,7 +99,9 @@
       };
 
       dm.prototype.setWhiteList = function(){
-          this.whiteList = ['http://localhost:3000/productions.html'];
+          this.whiteList = [
+              'http://localhost:3000/productions.html',
+              'http://localhost:3000/cart.html'];
       };
 
       dm.prototype.redirectCallback = function(){
